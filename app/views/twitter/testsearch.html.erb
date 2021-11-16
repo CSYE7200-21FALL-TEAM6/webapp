@@ -1,5 +1,11 @@
 <% TWITTER.search("trump", result_type: "recent").take(1).collect do |tweet|%>
     <%= tweet.instance_variables %>
+    <br>
+    <br>
+    <br>
     <%= tweet.text %>
+    <br>
+    <br>
+    <br>
     <%= tweet.attrs %>
 <% end %>
