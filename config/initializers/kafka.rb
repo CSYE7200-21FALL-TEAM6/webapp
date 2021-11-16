@@ -1,3 +1,3 @@
 require "kafka"
 
-KAFKA = Kafka.new([ENV['KAFKA0_IP'] + ":9092", ENV['KAFKA1_IP'] + ":9092", ENV['KAFKA2_IP'] + ":9092"], client_id: "twitter")
+KAFKA = Kafka.new([ENV['KAFKA_IP0'] + ":9092", ENV['KAFKA_IP1'] + ":9092", ENV['KAFKA_IP2'] + ":9092"], client_id: "twitter")
