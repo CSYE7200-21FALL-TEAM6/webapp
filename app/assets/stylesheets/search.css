@@ -1,11 +1,11 @@
-input{
+#query{
     width: 200px;
     height: 30px;
     border: 1px solid #7FCC0B;
     border-radius: 4px;
 }
 
-button{
+input{
     width: 100px;
     height: 30px;
     font-size: 14px;

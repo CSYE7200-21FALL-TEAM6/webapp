@@ -1,0 +1,9 @@
+<%= params[:query]%>
+<br>
+<% TWITTER.search(params[:query], result_type: "recent").take(3).collect do |tweet|%>
+
+    <%= tweet.full_text %>
+    <br>
+    <br>
+    <br>
+<% end %>
