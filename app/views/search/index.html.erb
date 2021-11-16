@@ -11,10 +11,8 @@
     <br>
     <br>
 </div>
-<div align="center">
-    <input type="text" name="search" id="" value="" /> 
-</div>
-<br>
-<div align="center">
-    <button>Search</button>
-</div>
+<%= form_with url: "/search", method: :get do |form| %>
+  <%= form.label :query, "Search for:" %>
+  <%= form.text_field :query %>
+  <%= form.submit "Search" %>
+<% end %>
