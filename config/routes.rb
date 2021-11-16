@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   get 'kafka/testsend'
   get 'kafka/testget'
   get 'twitter/testsearch'
+
+  root 'search/index'
 end
