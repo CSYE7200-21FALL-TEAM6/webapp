@@ -3,6 +3,8 @@
     height: 30px;
     border: 1px solid #7FCC0B;
     border-radius: 4px;
+    background: white;
+    color: black;
 }
 
 input{
