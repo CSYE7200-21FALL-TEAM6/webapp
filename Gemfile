@@ -5,6 +5,7 @@ ruby '2.7.0'
 gem 'twitter'
 gem 'ruby-kafka'
 gem 'dotenv-rails'
+gem 'mysql2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 # Use sqlite3 as the database for Active Record
