@@ -4,7 +4,7 @@
     <% if tweet.truncated? && tweet.attrs[:extended_tweet] %>
         <% text = tweet.attrs[:extended_tweet][:full_text] %>
     <%else%>
-        <% text = tweet.attrs[:full_text] %>
+        <% text = tweet.full_text%>
     <%end%>
     <% KAFKA.deliver_message(text, topic: "twitterdata") %>
     <%= text %>
