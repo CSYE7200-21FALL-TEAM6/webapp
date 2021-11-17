@@ -1,13 +1,8 @@
 <%= params[:query]%>
 <br>
-<% TWITTER.search(params[:query], result_type: "recent").take(1).collect do |tweet|%>
-    <% if tweet.truncated? && tweet.attrs[:extended_tweet] %>
-        <% text = tweet.attrs[:extended_tweet][:full_text] %>
-    <%else%>
-        <% text = tweet.full_text%>
-    <%end%>
-    <% KAFKA.deliver_message(text, topic: "twitterdata") %>
-    <%= text %>
+<% TWITTER.search(params[:query], result_type: "recent", tweet_mode: "extended").take(1).collect do |tweet|%>
+    <% KAFKA.deliver_message(tweet.text, topic: "twitterdata") %>
+    <%= tweet.full_text %>
     <br>
     <br>
     <br>
