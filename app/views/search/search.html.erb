@@ -1,6 +1,6 @@
 <%= params[:query]%>
 <br>
-<% TWITTER.search(params[:query], result_type: "recent").take(3).collect do |tweet|%>
+<% TWITTER.search(params[:query], result_type: "recent").take(1).collect do |tweet|%>
     <% if tweet.truncated? && tweet.attrs[:extended_tweet] %>
         <% text = tweet.attrs[:extended_tweet][:full_text] %>
     <%else%>
@@ -11,4 +11,5 @@
     <br>
     <br>
     <br>
+    <%= tweet.attrs %>
 <% end %>
