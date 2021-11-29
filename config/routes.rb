@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'db/test'
 
   get '/search', to: 'search#search'
-  
+  get '/result', to: 'search#result'
+
   root 'search#index'
 end
