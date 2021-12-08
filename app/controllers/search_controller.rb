@@ -3,8 +3,7 @@ class SearchController < ApplicationController
     end
     
     def search
-        @tweets = TWITTER.search(params[:query], result_type: "recent", tweet_mode: "extended").take(1).collect
-        @token = Time.now
+        @token = Time.now.utc.strftime('%m/%d/%Y %H:%M %p')
     end
 
     def result
