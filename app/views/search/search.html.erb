@@ -5,7 +5,7 @@
 <%= params[:query]%>
 <br>
 <% tweets do |tweet|%>
-    <% KAFKA.deliver_message(params[:query] + "%%%%%" + @token + "%%%%%" + @tweet.text + "%%%%%" topic: "twitterdata") %>
+    <% KAFKA.deliver_message(params[:query] + "%%%%%" + @token + "%%%%%" + @tweet.text + "%%%%%" + "twitterdata") %>
     <%= @tweet.full_text %>
     <br>
     <br>
