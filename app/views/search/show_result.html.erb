@@ -1,15 +1,32 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
-<%= javascript_include_tag 'application' %>
+      function drawChart() {
 
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
 
-<%= timeline [
-  ["Washington", "1789-04-29", "1797-03-03"],
-  ["Adams", "1797-03-03", "1801-03-03"],
-  ["Jefferson", "1801-03-03", "1809-03-03"]
-] %>
-<p> Result </p>
-<%= pie_chart({"2021-01-01" => 2, "2021-01-02" => 3}, refresh: 5) %>
-<p> Like </p>
-<%= pie_chart("http://demo.csye7200.xyz/result?query=" + params[:query] + "&token=" + params[:token] + "&type=like", refresh: 5) %>
-<p> Forward </p>
-<%= pie_chart("http://demo.csye7200.xyz/result?query=" + params[:query] + "&token=" + params[:token] + "&type=forward", refresh: 5) %>
+        var options = {
+          title: 'My Daily Activities'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
