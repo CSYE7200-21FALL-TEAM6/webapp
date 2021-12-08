@@ -15,7 +15,7 @@
           ['VeryPositive',    <%= @result_num[4] %>]
         ]);
         var options0 = {
-          title: 'sentiment_res'
+          title: 'Sentiment Result'
         };
         var chart0 = new google.visualization.PieChart(document.getElementById('piechart0'));
         chart0.draw(data0, options0);
@@ -30,7 +30,7 @@
           ['VeryPositive',    <%= @like_count[4] %>]
         ]);
         var options1 = {
-          title: 'sentiment_res'
+          title: 'Favourite Count'
         };
         var chart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
         chart1.draw(data1, options1);
@@ -44,7 +44,7 @@
           ['VeryPositive',    <%= @forward_count[4] %>]
         ]);
         var options2 = {
-          title: 'sentiment_res'
+          title: 'Retweet Count'
         };
         var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
         chart2.draw(data2, options2);
