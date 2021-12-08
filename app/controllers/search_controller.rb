@@ -35,20 +35,21 @@ class SearchController < ApplicationController
 
     def show_result
         @result_num    =  [
-            ["VeryNegative", 0],
+            ['Atitude', 'count'],
+            ['VeryNegative', 0],
             ['Negative',     0],
             ['Neutral',      0],
             ['Positive',  0],
             ['VeryPositive', 0]
           ]
-        @like_count    =  Array.new(5, 0)
-        @forward_count =  Array.new(5, 0)
+        @like_count    =  Array.new(6, 0)
+        @forward_count =  Array.new(6, 0)
         records = Record.where(keyword: params[:query], token: params[:token])
         records.each { |record|
-            index                  = record.sentiment_res.to_i + 2
+            index                  = record.sentiment_res.to_i + 3
             @result_num[index][1]     += 1
-            @like_count[index][1]    += record.like_num
-            @forward_count[index][1]  += record.retweet_num
+            @like_count[index]    += record.like_num
+            @forward_count[index]  += record.retweet_num
         }
     end
 end
