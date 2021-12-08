@@ -10,8 +10,8 @@ import "channels"
 import "chartkick/chart.js"
 require("chartkick")
 require("chart.js")
-//= require highcharts
 //= require chartkick
+//= require Chart.bundle  #Add two lines
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
