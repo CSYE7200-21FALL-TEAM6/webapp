@@ -1,0 +1,11 @@
+
+
+
+<p> Result </p>
+<%= pie_chart("http://demo.csye7200.xyz/showresult?query=" + params[:query] + "token=" + params[:token] + "type=result", refresh: 5) %>
+<p> Like </p>
+<%= pie_chart("http://demo.csye7200.xyz/showresult?query=" + params[:query] + "token=" + params[:token] + "type=like", refresh: 5) %>
+<p> Reply </p>
+<%= pie_chart("http://demo.csye7200.xyz/showresult?query=" + params[:query] + "token=" + params[:token] + "type=reply", refresh: 5) %>
+<p> Forward </p>
+<%= pie_chart("http://demo.csye7200.xyz/showresult?query=" + params[:query] + "token=" + params[:token] + "type=forward", refresh: 5) %>

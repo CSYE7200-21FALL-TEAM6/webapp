@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get '/search', to: 'search#search'
   get '/result', to: 'search#result'
+  get '/showresult', to: 'search#show_result'
 
   root 'search#index'
 end

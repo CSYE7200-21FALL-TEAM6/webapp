@@ -1,14 +1,14 @@
 <head>
-    <meta http-equiv="refresh" content="3;url=http://demo.csye7200.xyz/result?query=<%= params[:query]%>">
+    <meta http-equiv="refresh" content="3;url=http://demo.csye7200.xyz/showresult?query=<%= params[:query]%>token=<%= token %>">
 </head>
 
 <%= params[:query]%>
 <br>
-<% TWITTER.search(params[:query], result_type: "recent", tweet_mode: "extended").take(1).collect do |tweet|%>
-    <% KAFKA.deliver_message(tweet.text, topic: "twitterdata") %>
-    <%= tweet.full_text %>
+<% tweets do |tweet|%>
+    <% KAFKA.deliver_message(params[:query] + "%%%%%" + @token + "%%%%%" + @tweet.text + "%%%%%" topic: "twitterdata") %>
+    <%= @tweet.full_text %>
     <br>
     <br>
     <br>
-    <%= tweet.attrs %>
+    <%= @tweet.attrs %>
 <% end %>
