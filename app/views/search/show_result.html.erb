@@ -6,7 +6,14 @@
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
-        var data = google.visualization.arrayToDataTable(<%= @result_num %>);
+        var data = google.visualization.arrayToDataTable([
+          ['Sentiment', 'Count'],
+          ['Work',     <%= @result_num[0] %>],
+          ['Eat',      <%= @result_num[1] %>],
+          ['Commute',  <%= @result_num[2] %>],
+          ['Watch TV', <%= @result_num[3] %>],
+          ['Sleep',    <%= @result_num[4] %>]
+        ]);
         var options = {
           title: 'sentiment_res'
         };
