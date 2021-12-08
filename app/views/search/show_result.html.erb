@@ -1,6 +1,12 @@
 
 <%= javascript_include_tag 'application' %>
 
+
+<%= timeline [
+  ["Washington", "1789-04-29", "1797-03-03"],
+  ["Adams", "1797-03-03", "1801-03-03"],
+  ["Jefferson", "1801-03-03", "1809-03-03"]
+] %>
 <p> Result </p>
 <%= pie_chart({"2021-01-01" => 2, "2021-01-02" => 3}, refresh: 5) %>
 <p> Like </p>
