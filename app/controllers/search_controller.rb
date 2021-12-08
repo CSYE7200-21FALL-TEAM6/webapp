@@ -46,9 +46,9 @@ class SearchController < ApplicationController
         records = Record.where(keyword: params[:query], token: params[:token])
         records.each { |record|
             index                  = record.sentiment_res.to_i + 2
-            @result_num[index]     += 1
-            @like_count[index]     += record.like_num
-            @forward_count[index]  += record.retweet_num
+            @result_num[index][1]     += 1
+            @like_count[index][1]    += record.like_num
+            @forward_count[index][1]  += record.retweet_num
         }
     end
 end
