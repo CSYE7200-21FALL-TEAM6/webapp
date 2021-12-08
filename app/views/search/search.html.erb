@@ -1,5 +1,4 @@
 <head>
-    <meta http-equiv="refresh" content="3;url=http://demo.csye7200.xyz/showresult?query=<%= params[:query]%>&token=<%= @token %>">
 </head>
 
 <%= params[:query]%>
@@ -8,10 +7,13 @@
     <% KAFKA.deliver_message(params[:query] + "%%%%%" + @token + "%%%%%" + tweet.text + "%%%%%" + tweet.favorite_count.to_s + "%%%%%" + tweet.reply_count.to_s + "%%%%%" + tweet.retweet_count.to_s, topic: "twitterdata") %>
     <%= tweet.full_text %>
     <br>
+    favorite_count:
     <%= tweet.favorite_count %>
     <br>
+    reply_count:
     <%= tweet.reply_count %>
     <br>
+    retweet_count:
     <%= tweet.retweet_count %>
     <%= tweet.attrs %>
 <% end %>
