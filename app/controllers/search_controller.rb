@@ -28,6 +28,8 @@ class SearchController < ApplicationController
             render status: 200, json: forward_count
             return
         end
+
+        render status: 200, json: Record.where(keyword: params[:query], token: params[:token])
     end
 
     def show_result
