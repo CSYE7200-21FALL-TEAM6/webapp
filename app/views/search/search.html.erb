@@ -5,11 +5,11 @@
 <%= params[:query]%>
 <br>
 <% TWITTER.search(params[:query], result_type: "recent", tweet_mode: "extended").take(100).collect do |tweet|%>
-    <% KAFKA.deliver_message(params[:query] + "%%%%%" + @token + "%%%%%" + tweet.text + "%%%%%" + tweet.favorite_count.to_s + "%%%%%" + tweet.retweet_count.to_s, topic: "twitterdata") %>
+    <% KAFKA.deliver_message(params[:query] + "%%%%%" + @token + "%%%%%" + tweet.text + "%%%%%" + tweet.favourites_count.to_s + "%%%%%" + tweet.retweet_count.to_s, topic: "twitterdata") %>
     <%= tweet.full_text %>
     <br>
     favorite_count:
-    <%= tweet.favorite_count %>
+    <%= tweet.favourites_count %>
     <br>
     retweet_count:
     <%= tweet.retweet_count %>

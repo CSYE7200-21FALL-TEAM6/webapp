@@ -11,10 +11,10 @@ class SearchController < ApplicationController
         like_count    =  Array.new(5, "0")
         forward_count =  Array.new(5, "0")
         Record.where(keyword: params[:query], token: params[:token]) do |record|
-            index = record.result
+            index                  = record.sentiment_res.to
             result_num[index]     += 1
-            like_count[index]     += record.like
-            forward_count[index]  += record.forward
+            like_count[index]     += record.like_num
+            forward_count[index]  += record.retweet_num
         end
         if params[:type] == "result"
             render status: 200, json: result_num
