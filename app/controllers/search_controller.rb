@@ -7,11 +7,10 @@ class SearchController < ApplicationController
     end
 
     def result
-        records = Record.where(keyword: params[:query], token: params[:token])
         result_num    =  Array.new(5, "0")
         like_count    =  Array.new(5, "0")
         forward_count =  Array.new(5, "0")
-        records do |record|
+        Record.where(keyword: params[:query], token: params[:token]) do |record|
             index = record.result
             result_num[index]     += 1
             like_count[index]     += record.like
