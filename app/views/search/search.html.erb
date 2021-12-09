@@ -4,7 +4,7 @@
 
 <%= params[:query]%>
 <br>
-<% TWITTER.search(params[:query], result_type: "recent", tweet_mode: "extended").take(100).collect do |tweet|%>
+<% TWITTER.search(params[:query], result_type: "recent", tweet_mode: "extended").take(150).collect do |tweet|%>
     <% if tweet.instance_variable_defined?(:@favourites_count) %>
         <% f_count =  tweet.favourites_count.to_s%>
     <% else %>
